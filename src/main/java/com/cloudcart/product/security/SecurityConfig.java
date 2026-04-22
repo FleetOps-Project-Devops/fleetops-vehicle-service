@@ -25,9 +25,10 @@ public class SecurityConfig {
         http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/actuator/health", "/health").permitAll()
+                .requestMatchers("/actuator/**", "/health").permitAll()
                 .requestMatchers(HttpMethod.GET, "/products/**").permitAll()
-                .anyRequest().hasRole("ADMIN") // All mutating methods require ADMIN
+                .requestMatchers(HttpMethod.PATCH, "/products/*/stock").authenticated()
+                .anyRequest().hasRole("ADMIN") // All other mutating methods require ADMIN
             )
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
