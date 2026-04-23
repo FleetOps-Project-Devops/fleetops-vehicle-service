@@ -1,8 +1,8 @@
 spring:
   application:
-    name: product-service
+    name: vehicle-service
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/product_db}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/vehicle_db}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
     password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     hikari:
@@ -47,3 +47,4 @@ logging:
   level:
     com.cloudcart: INFO
     com.cloudcart.product.cache: DEBUG
+    com.cloudcart.product.service: DEBUG
