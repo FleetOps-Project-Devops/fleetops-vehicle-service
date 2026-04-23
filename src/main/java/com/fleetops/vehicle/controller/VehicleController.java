@@ -1,8 +1,8 @@
-package com.cloudcart.product.controller;
+﻿package com.fleetops.vehicle.controller;
 
-import com.cloudcart.product.entity.Vehicle;
-import com.cloudcart.product.entity.Vehicle.VehicleStatus;
-import com.cloudcart.product.service.VehicleService;
+import com.fleetops.vehicle.entity.Vehicle;
+import com.fleetops.vehicle.entity.Vehicle.VehicleStatus;
+import com.fleetops.vehicle.service.VehicleService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * VehicleController — REST API for FleetOps vehicle management.
+ * VehicleController â€” REST API for FleetOps vehicle management.
  *
  * Authorization matrix:
  *   GET /vehicles           DRIVER (assigned only), MANAGER (all), ADMIN (all)
@@ -36,7 +36,7 @@ public class VehicleController {
         this.vehicleService = vehicleService;
     }
 
-    // ─── READ ──────────────────────────────────────────────────────────────────
+    // â”€â”€â”€ READ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     @GetMapping
     @PreAuthorize("hasAnyRole('DRIVER','MANAGER','ADMIN')")
@@ -81,7 +81,7 @@ public class VehicleController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // ─── WRITE — ADMIN ONLY ────────────────────────────────────────────────────
+    // â”€â”€â”€ WRITE â€” ADMIN ONLY â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
@@ -105,7 +105,7 @@ public class VehicleController {
                 : ResponseEntity.notFound().build();
     }
 
-    // ─── STATUS UPDATE — MANAGER, ADMIN ───────────────────────────────────────
+    // â”€â”€â”€ STATUS UPDATE â€” MANAGER, ADMIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     @PatchMapping("/{id}/status")
     @PreAuthorize("hasAnyRole('MANAGER','ADMIN')")
@@ -125,7 +125,7 @@ public class VehicleController {
         }
     }
 
-    // ─── MILEAGE UPDATE — DRIVER (own vehicle), ADMIN ─────────────────────────
+    // â”€â”€â”€ MILEAGE UPDATE â€” DRIVER (own vehicle), ADMIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     @PatchMapping("/{id}/mileage")
     @PreAuthorize("hasAnyRole('DRIVER','ADMIN')")
@@ -161,7 +161,7 @@ public class VehicleController {
         };
     }
 
-    // ─── ALERTS — MANAGER, ADMIN ───────────────────────────────────────────────
+    // â”€â”€â”€ ALERTS â€” MANAGER, ADMIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     @GetMapping("/alerts/insurance")
     @PreAuthorize("hasAnyRole('MANAGER','ADMIN')")
@@ -175,7 +175,7 @@ public class VehicleController {
         return ResponseEntity.ok(vehicleService.getServiceDueAlerts());
     }
 
-    // ─── DASHBOARD KPIs — MANAGER, ADMIN ──────────────────────────────────────
+    // â”€â”€â”€ DASHBOARD KPIs â€” MANAGER, ADMIN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
     @GetMapping("/dashboard")
     @PreAuthorize("hasAnyRole('MANAGER','ADMIN')")
@@ -183,3 +183,4 @@ public class VehicleController {
         return ResponseEntity.ok(vehicleService.getDashboardStats());
     }
 }
+

@@ -1,4 +1,4 @@
-package com.cloudcart.product.entity;
+﻿package com.fleetops.vehicle.entity;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
- * Vehicle entity — the core domain object of FleetOps.
+ * Vehicle entity â€” the core domain object of FleetOps.
  *
  * Status lifecycle:
  *   ACTIVE -> IN_SERVICE (when a request goes IN_PROGRESS)
@@ -76,6 +76,10 @@ public class Vehicle implements Serializable {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Version
+    @Column(nullable = false)
+    private Long version = 0L;
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
@@ -143,4 +147,8 @@ public class Vehicle implements Serializable {
 
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+
+    public Long getVersion() { return version; }
+    public void setVersion(Long version) { this.version = version; }
 }
+

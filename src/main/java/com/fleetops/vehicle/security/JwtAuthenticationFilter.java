@@ -1,4 +1,4 @@
-package com.cloudcart.product.security;
+﻿package com.fleetops.vehicle.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -58,3 +58,4 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
+

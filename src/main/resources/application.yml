@@ -1,4 +1,4 @@
-spring:
+﻿spring:
   application:
     name: vehicle-service
   datasource:
@@ -45,6 +45,7 @@ management:
 
 logging:
   level:
-    com.cloudcart: INFO
-    com.cloudcart.product.cache: DEBUG
-    com.cloudcart.product.service: DEBUG
+    com.fleetops: INFO
+    com.fleetops.vehicle.cache: DEBUG
+    com.fleetops.vehicle.service: DEBUG
+

@@ -1,4 +1,4 @@
-package com.cloudcart.product.config;
+﻿package com.fleetops.vehicle.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.time.Duration;
 
 /**
- * Redis Cache Configuration for CloudCart Product Service.
+ * Redis Cache Configuration for FleetOps Product Service.
  *
  * Cache Strategy:
  *   - "products"  : list of all products / per-category lists  (TTL: 5 min)
@@ -58,9 +58,10 @@ public class CacheConfig {
                     .build();
 
         } catch (Exception e) {
-            log.warn("Redis unavailable — falling back to NoOpCacheManager. Products will be served directly from DB. Error: {}",
+            log.warn("Redis unavailable â€” falling back to NoOpCacheManager. Products will be served directly from DB. Error: {}",
                     e.getMessage());
             return new NoOpCacheManager();
         }
     }
 }
+

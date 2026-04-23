@@ -1,13 +1,15 @@
-package com.cloudcart.product;
+﻿package com.fleetops.vehicle;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductServiceApplication {
+public class VehicleServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductServiceApplication.class, args);
+		SpringApplication.run(VehicleServiceApplication.class, args);
 	}
 
 }
+
+

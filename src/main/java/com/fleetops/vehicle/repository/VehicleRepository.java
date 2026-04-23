@@ -1,7 +1,7 @@
-package com.cloudcart.product.repository;
+﻿package com.fleetops.vehicle.repository;
 
-import com.cloudcart.product.entity.Vehicle;
-import com.cloudcart.product.entity.Vehicle.VehicleStatus;
+import com.fleetops.vehicle.entity.Vehicle;
+import com.fleetops.vehicle.entity.Vehicle.VehicleStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -47,3 +47,4 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
     @Query("UPDATE Vehicle v SET v.currentMileage = :mileage, v.updatedAt = CURRENT_TIMESTAMP WHERE v.id = :id")
     int updateMileage(@Param("id") Long id, @Param("mileage") Integer mileage);
 }
+

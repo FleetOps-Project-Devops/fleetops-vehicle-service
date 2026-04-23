@@ -1,4 +1,4 @@
-package com.cloudcart.product.security;
+﻿package com.fleetops.vehicle.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,3 +40,4 @@ public class SecurityConfig {
         return http.build();
     }
 }
+
