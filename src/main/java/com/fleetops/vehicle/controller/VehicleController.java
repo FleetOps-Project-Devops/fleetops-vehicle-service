@@ -42,7 +42,7 @@ public class VehicleController {
 
     @GetMapping
     @PreAuthorize("hasAnyRole('DRIVER','MANAGER','ADMIN')")
-    public ResponseEntity<List<Vehicle>> getVehicles(
+    public ResponseEntity<?> getVehicles(
             @RequestParam(required = false) String type,
             @RequestParam(required = false) String status,
             @RequestParam(required = false) String driverId,
